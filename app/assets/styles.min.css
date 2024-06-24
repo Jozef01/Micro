@@ -1,0 +1,281 @@
+#loginForm {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: start;
+  background-color: #fff;
+  box-shadow: 0 2px 23px -5px rgba(0, 0, 0, 0.46);
+  height: 337px;
+  width: 440px;
+  padding: 10px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(./background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#logo {
+  margin-top: 25px;
+  margin-left: 36px;
+  border: none;
+}
+
+#signIn {
+  margin-left: 36px;
+  margin-top: -6px;
+  font-weight: 600;
+  font-size: 25px;
+  overflow: hidden;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.opts {
+  padding: 10px 44px;
+  width: 440px;
+  cursor: pointer;
+  margin: auto;
+  background-color: #fff;
+  -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.opts:active,
+.opts:focus {
+  /* border: 1px dotted black; */
+  outline: rgb(0, 0, 0) dashed 1px;
+}
+
+.opts:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#email {
+  width: 85%;
+  max-width: 350px;
+  height: 40px;
+  margin-top: -10px;
+  margin-left: 36px;
+  border: none;
+  border-bottom: 0.01px solid rgba(0, 0, 0, 0.7);
+}
+
+#ForgodPwd,
+#NoAccount,
+#others,
+#SignWithKey,
+#btnBack,
+#createAccount {
+  margin-left: 36px;
+  margin-top: 13px;
+  font-size: 13px !important;
+}
+
+#ForgodPwd {
+  margin-bottom: 10px;
+}
+
+#others {
+  margin-top: 0px !important;
+  margin-bottom: 0px;
+}
+
+#signInSecurity {
+  margin-left: 25px;
+  font-size: 13px;
+}
+
+.fa.fa-question-circle-o {
+  margin-left: 5px;
+  opacity: 0.8;
+}
+
+#passResult,
+#result,
+#signInOptions,
+#signInSecurityKey {
+  margin-left: 36px;
+  font-size: 13px;
+}
+
+#iconQ {
+  margin-left: 3px;
+  opacity: 0.55;
+}
+
+#btnSend,
+#btnSignIn {
+  height: 33px;
+  width: 108px;
+  padding: 0;
+  margin-left: auto;
+  margin-top: auto;
+  font-size: 13px;
+  color: #fff;
+  border: #0067b8;
+  background-color: #0067b8;
+}
+
+#btnPlace {
+  margin-left: 275px;
+  margin-top: 45px;
+  margin-bottom: 1px;
+}
+
+#linkCreateAccount {
+  margin-left: 5px;
+}
+
+#email:focus,
+input:focus {
+  outline: 0;
+}
+
+#image {
+  margin-top: 25px;
+  margin-left: 36px;
+  margin-bottom: 12px;
+}
+
+.section-indent {
+  float: left;
+}
+
+#btnSignInLocation {
+  margin-left: 275px;
+  margin-top: 19px;
+}
+
+#password {
+  width: 85%;
+  height: 40px;
+  margin-top: -10px;
+  margin-left: 36px;
+  border: none;
+  border-bottom: 0.01px solid rgba(0, 0, 0, 0.7);
+}
+
+#enterPwd {
+  margin-left: 36px;
+  margin-top: 7px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+#btnBack {
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.3);
+  padding: 5px;
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin: 4px 31px;
+  border: none;
+  cursor: pointer;
+  border-radius: 100%;
+}
+
+#userLine {
+  margin-left: 36px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+#iconCircle {
+  color: red;
+}
+
+#iconBg {
+  margin-right: 5px;
+  opacity: 0.4;
+  font-size: 23px;
+}
+
+.slide-page {
+  margin-left: 0;
+}
+
+.secondSlide {
+  margin-left: 100%;
+  overflow: hidden;
+}
+
+#section-1 {
+  overflow: hidden;
+}
+
+#bg {
+  min-width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+#footer {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.quince {
+  overflow: hidden;
+}
+
+inline-style {
+  display: block;
+}
+
+.quince>div {
+  position: absolute;
+  height: 5px;
+  width: 5px;
+  background-color: rgb(0, 103, 184);
+  z-index: 100;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.quince>div:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.quince>div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.quince>div:nth-child(3) {
+  animation-delay: 0.35s;
+}
+
+.quince>div:nth-child(4) {
+  animation-delay: 0.5s;
+}
+
+.quince>div:nth-child(5) {
+  animation-delay: 0.65s;
+}
+
+.next-form {
+  transform: translateX(0%);
+}
